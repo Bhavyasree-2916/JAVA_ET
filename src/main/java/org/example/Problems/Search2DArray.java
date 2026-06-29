@@ -1,0 +1,55 @@
+package org.example.Problems;
+
+import java.util.Scanner;
+
+public class Search2DArray {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number of rows: ");
+        int m = sc.nextInt();
+
+        if (m < 1) {
+            System.out.println("Invalid Input: Number of rows must be at least 1");
+            return;
+        }
+
+        System.out.print("Enter number of columns: ");
+        int n = sc.nextInt();
+
+        if (n > 50) {
+            System.out.println("Invalid Input: Number of columns must be at most 50");
+            return;
+        }
+
+        int[][] arr = new int[m][n];
+
+        System.out.println("Enter matrix elements:");
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                arr[i][j] = sc.nextInt();
+            }
+        }
+
+        System.out.print("Enter the number to search: ");
+        int x = sc.nextInt();
+
+        boolean found = false;
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (arr[i][j] == x) {
+                    System.out.println(x + " found at row " + i + " and column " + j);
+                    found = true;
+                    break;
+                }
+            }
+            if (found)
+                break;
+        }
+
+        if (!found) {
+            System.out.println(x + " not found in the array");
+        }
+    }
+}
